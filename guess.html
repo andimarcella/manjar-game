@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#201d1a">
+  <title>Guess Message | Kuis Hantu Pukul 02.14</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="cipher.js"></script>
+  <script src="audio.js" defer></script>
+  <script src="guess.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html">Kuis Hantu Pukul 02.14</a>
+    <nav aria-label="Navigasi utama">
+      <a href="index.html">Beranda</a>
+      <a href="metode.html">Pelajari Metode</a>
+      <a href="game.html">Cerita</a>
+      <a href="guess.html" aria-current="page">Guess Message</a>
+      <button type="button" class="sound-toggle" data-sound-toggle aria-pressed="false">Suara: mati</button>
+    </nav>
+  </header>
+  <main class="page">
+    <section class="panel guess-panel" aria-labelledby="page-title">
+      <p class="status">Ronde untuk dua kelompok</p>
+      <h1 id="page-title">Guess Message</h1>
+      <p>Pilih satu soal, baca pesan tersandinya, lalu pecahkan sebelum waktu habis. Semakin sulit metodenya, semakin banyak waktu dan poin. Host mengetik tebakan yang disampaikan lisan.</p>
+
+      <div class="scoreboard" aria-label="Papan skor">
+        <p class="team-score" id="score-a">Kelompok A: <strong>0</strong> poin</p>
+        <p class="team-score" id="score-b">Kelompok B: <strong>0</strong> poin</p>
+        <button class="button" id="reset-button" type="button">Reset skor</button>
+      </div>
+      <p class="status" id="turn" aria-live="polite"></p>
+
+      <section id="picker" aria-labelledby="picker-title">
+        <h2 id="picker-title">Pilih soal</h2>
+        <ol class="question-list" id="question-list"></ol>
+      </section>
+
+      <section id="round" class="round" aria-labelledby="round-title" hidden>
+        <h2 id="round-title"></h2>
+        <p id="round-meta" class="status"></p>
+        <p class="scrap" id="cipher" aria-label="Pesan tersandi"></p>
+        <p id="round-info" class="status" hidden></p>
+        <p class="status" id="timer" role="timer" aria-live="off">Waktu: 60 detik</p>
+        <form id="guess-form" class="lab" novalidate>
+          <label for="guess-input">Tebakan lisan</label>
+          <input id="guess-input" name="guess" type="text" autocomplete="off" spellcheck="false" maxlength="80" aria-describedby="form-status" disabled>
+          <fieldset>
+            <legend>Tebakan ini dari kelompok</legend>
+            <div class="actions">
+              <button class="button" type="button" data-team="A" disabled>Kelompok A</button>
+              <button class="button" type="button" data-team="B" disabled>Kelompok B</button>
+            </div>
+          </fieldset>
+          <div class="actions">
+            <button class="button" id="start-button" type="button">Mulai Ronde</button>
+            <button class="button" id="back-button" type="button">Kembali ke daftar soal</button>
+          </div>
+          <p id="form-status" class="status" role="status" aria-live="polite"></p>
+        </form>
+        <p><a id="learn-link" href="metode.html">Lupa cara kerjanya? Buka Pelajari Metode</a></p>
+      </section>
+    </section>
+  </main>
+  <footer class="site-footer"><p><a href="index.html">Kembali ke Beranda</a></p></footer>
+</body>
+</html>
